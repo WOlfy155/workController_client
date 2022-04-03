@@ -1,0 +1,37 @@
+:host{
+  display: flex;
+  flex-direction: column;
+}
+
+app-header{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid black;
+}
+
+main{
+  width: 100vw;
+  height: calc(100vh - 52px);
+  display: flex;
+}
+
+app-menu{
+  width: 270px;
+  height: 100%;
+  background-color: #C4C4C4;
+  border-right: 2px solid black;
+
+  transition: width 250ms;
+
+  &.closed{
+    width: 40px;
+  }
+}
+
+.content{
+  width: 100%;
+  height: 100%;
+
+  background-color: green;
+}

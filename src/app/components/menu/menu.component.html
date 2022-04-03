@@ -1,12 +1,13 @@
 <div class="menu-container">
-
   <div
     *ngFor="let menuItem of menuItems"
     class="menu-item"
-
   >
     <mat-icon class="menu-icon">{{menuItem.icon}}</mat-icon>
-    {{menuItem.label}}
+    <span
+      class="menu-tem-label"
+      [class.closed] = "isMenuClosed"
+    >{{menuItem.label}}</span>
   </div>
 
 </div>

@@ -7,13 +7,21 @@
 }
 
 .menu-item{
-  font-family: Roboto, serif;
-  font-size: 20px;
-  color: black;
   display: flex;
   align-items: center;
   gap: 0.7rem;
   width:  200px;
+}
+
+.menu-tem-label{
+
+  font-family: Roboto, serif;
+  font-size: 20px;
+  color: black;
+
+  &.closed{
+    opacity: 0;
+  }
 }
 
 .menu-icon{
