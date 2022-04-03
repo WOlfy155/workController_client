@@ -1,0 +1,17 @@
+.logo-container{
+  padding: 6px 0 0 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 256px;
+}
+
+.logo{
+  width: 24px;
+  height: 24px;
+}
+
+.logo-name{
+  font-family: Roboto, serif;
+  font-size: 24px;
+  font-weight: bold;
+}
