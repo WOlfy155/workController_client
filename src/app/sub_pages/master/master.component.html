@@ -1,0 +1,19 @@
+<h1 class="my-tasks">Текущие задачи</h1>
+
+<div class="task-container">
+  <mat-card
+    *ngFor="let task of tasks"
+    class="task"
+  >
+    <div class="card-header">
+      <mat-card-title class="task-name">{{task.name}}</mat-card-title>
+      <mat-card-header>
+        <span class="author"> Автор: {{task.author}}</span>
+      </mat-card-header>
+    </div>
+
+    <mat-card-content class="task-content">{{task.text}}</mat-card-content>
+
+  </mat-card>
+
+</div>
