@@ -13,7 +13,7 @@ import {CommonModule} from "@angular/common";
   imports: [
     AppRoutingModule,
     MatIconModule,
-    CommonModule
+    CommonModule,
   ],
   exports: [
     MenuComponent,

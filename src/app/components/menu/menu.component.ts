@@ -4,29 +4,35 @@ import {SubSink} from "../../util/SubSink";
 
 export interface menuItem{
   icon: string,
-  label: string
+  label: string,
+  url: string
 }
 
 export const menuItems: menuItem[] = [
   {
     icon: 'home',
-    label: ' Главная'
+    label: ' Главная',
+    url: 'master'
   },
   {
     icon: 'work',
-    label: ' Мои проекты'
+    label: ' Мои проекты',
+    url: ''
   },
   {
     icon: 'signal_cellular_alt',
-    label: ' Моя статистика'
+    label: ' Моя статистика',
+    url: ''
   },
   {
     icon: 'receipt',
-    label: ' Новости'
+    label: ' Новости',
+    url: ''
   },
   {
     icon: 'date_range',
-    label: ' Календарь'
+    label: ' Календарь',
+    url: 'calendar'
   }
 ]
 

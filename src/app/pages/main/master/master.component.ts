@@ -1,10 +1,8 @@
-import {Component, NgModule, OnInit} from '@angular/core';
-import {Task} from "../../models/task";
-import {TaskStatus} from "../../models/enums/task-status";
-import {CommonModule} from "@angular/common";
-import {MatCardModule} from "@angular/material/card";
+import {Component, OnInit} from '@angular/core';
+import {WorkTask} from "../../../models/workTask";
+import {TaskStatus} from "../../../models/enums/task-status";
 
-export const tasks: Task[] = [
+export const tasks: WorkTask[] = [
   {
     name:'task1',
     text: 'asdasdasdasdasdas dasdasdasdasdasdasdasdasdasdasd asdasdasdasdasdasd asdasdasdas dasdasdasd asdasdasdasdasdas dasdasdasdas dasdasdasd asdasdasd asdasdasdasdasda sdasdasdasdasda sdasdasdasdasda sdasdasdasdas dasdasdasdasdasda sdasdasdasdasd asdasdasdasda sdasdasdasdasdasd asdasdasdasdasd asdasdasdasdas dasdasdasdasdas' +
@@ -49,16 +47,7 @@ export class MasterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get tasks(): Task[]{
+  get tasks(): WorkTask[]{
     return tasks
   }
 }
-
-@NgModule({
-  declarations: [MasterComponent],
-
-  imports: [CommonModule, MatCardModule],
-
-  exports: [MasterComponent],
-})
-export class MasterModule {}

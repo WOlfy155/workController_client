@@ -2,6 +2,7 @@
   <div
     *ngFor="let menuItem of menuItems"
     class="menu-item"
+    [routerLink]="menuItem.url"
   >
     <mat-icon class="menu-icon">{{menuItem.icon}}</mat-icon>
     <span

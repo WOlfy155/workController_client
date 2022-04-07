@@ -1,6 +1,6 @@
 import {TaskStatus} from "./enums/task-status";
 
-export class Task {
+export class WorkTask {
   name: string;
   text: string;
   createdAt: Date;
