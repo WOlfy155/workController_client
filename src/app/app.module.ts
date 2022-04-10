@@ -11,6 +11,10 @@ import {MatCardModule} from "@angular/material/card";
 import {MasterComponent} from "./pages/main/master/master.component";
 import {CalendarComponent} from "./pages/main/calendar/calendar.component";
 import {NzCalendarModule} from "ng-zorro-antd/calendar";
+import {MainComponent} from "./pages/main/main.component";
+import {ComponentsModule} from "./components/Components";
+import {ProjectsComponent} from "./pages/main/projects/projects.component";
+import {StatisticsComponent} from "./pages/main/statistics/statistics.component";
 
 registerLocaleData(ru);
 
@@ -18,7 +22,10 @@ registerLocaleData(ru);
   declarations: [
     AppComponent,
     MasterComponent,
-    CalendarComponent
+    CalendarComponent,
+    MainComponent,
+    ProjectsComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,8 @@ registerLocaleData(ru);
     HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
-    NzCalendarModule
+    NzCalendarModule,
+    ComponentsModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: ru_RU },

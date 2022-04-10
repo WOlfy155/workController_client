@@ -12,14 +12,14 @@ export const tasks: WorkTask[] = [
       'asdasdasdasdasdas dasdasdasdasdasdasdasdasdasdasd asdasdasdasdasdasd asdasdasdas dasdasdasd asdasdasdasdasdas dasdasdasdas dasdasdasd asdasdasd asdasdasdasdasda sdasdasdasdasda sdasdasdasdasda sdasdasdasdas dasdasdasdasdasda sdasdasdasdasd asdasdasdasda sdasdasdasdasdasd asdasdasdasdasd asdasdasdasdas dasdasdasdasdas',
     status: TaskStatus.ACTIVE,
     author: 'Me',
-    createdAt: new Date()
+    deadline: new Date()
   },
   {
     name:'task2',
     text: 'asdasdasdasdasdas dasdasdasdasdasdasdasdasdasdasd asdasdasdasdasdasd asdasdasdas dasdasdasd asdasdasdasdasdas dasdasdasdas dasdasdasd asdasdasd asdasdasdasdasda sdasdasdasdasda sdasdasdasdasda sdasdasdasdas dasdasdasdasdasda sdasdasdasdasd asdasdasdasda sdasdasdasdasdasd asdasdasdasdasd asdasdasdasdas dasdasdasdasdas',
-    status: TaskStatus.ACTIVE,
+    status: TaskStatus.DONE,
     author: 'Me',
-    createdAt: new Date()
+    deadline: new Date()
   },
   {
     name:'task3',
@@ -28,9 +28,9 @@ export const tasks: WorkTask[] = [
       'asdasdasdasdasdas dasdasdasdasdasdasdasdasdasdasd asdasdasdasdasdasd asdasdasdas dasdasdasd asdasdasdasdasdas dasdasdasdas dasdasdasd asdasdasd asdasdasdasdasda sdasdasdasdasda sdasdasdasdasda sdasdasdasdas dasdasdasdasdasda sdasdasdasdasd asdasdasdasda sdasdasdasdasdasd asdasdasdasdasd asdasdasdasdas dasdasdasdasdas' +
       'asdasdasdasdasdas dasdasdasdasdasdasdasdasdasdasd asdasdasdasdasdasd asdasdasdas dasdasdasd asdasdasdasdasdas dasdasdasdas dasdasdasd asdasdasd asdasdasdasdasda sdasdasdasdasda sdasdasdasdasda sdasdasdasdas dasdasdasdasdasda sdasdasdasdasd asdasdasdasda sdasdasdasdasdasd asdasdasdasdasd asdasdasdasdas dasdasdasdasdas' +
       'asdasdasdasdasdas dasdasdasdasdasdasdasdasdasdasd asdasdasdasdasdasd asdasdasdas dasdasdasd asdasdasdasdasdas dasdasdasdas dasdasdasd asdasdasd asdasdasdasdasda sdasdasdasdasda sdasdasdasdasda sdasdasdasdas dasdasdasdasdasda sdasdasdasdasd asdasdasdasda sdasdasdasdasdasd asdasdasdasdasd asdasdasdasdas dasdasdasdasdas',
-    status: TaskStatus.ACTIVE,
+    status: TaskStatus.OVERDUE,
     author: 'Me',
-    createdAt: new Date()
+    deadline: new Date()
   },
 
 ];

@@ -17,12 +17,12 @@ export const menuItems: menuItem[] = [
   {
     icon: 'work',
     label: ' Мои проекты',
-    url: ''
+    url: 'projects'
   },
   {
     icon: 'signal_cellular_alt',
     label: ' Моя статистика',
-    url: ''
+    url: 'statistics'
   },
   {
     icon: 'receipt',

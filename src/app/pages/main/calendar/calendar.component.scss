@@ -1,0 +1,22 @@
+.task{
+  width: 80%;
+  margin-bottom: 5px;
+  border-radius: 5px;
+
+  &.active{
+    background-color: blue;
+  }
+  &.done{
+    background-color: green;
+  }
+  &.overdue{
+    background-color: red;
+  }
+}
+.task-label{
+  font-family: Roboto, serif;
+  font-size: 14px;
+  color: white;
+
+  padding: 0 5px;
+}

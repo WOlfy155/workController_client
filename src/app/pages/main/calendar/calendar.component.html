@@ -1,2 +1,18 @@
-<nz-calendar>
+<nz-calendar
+  [(nzMode)]="displayMode"
+  (nzSelectChange)="navigateToMonth()"
+>
+  <div *nzDateCell="let date">
+    <div *ngFor="let task of tasks">
+      <div
+        *ngIf="compareDates(date, task.deadline)"
+        class="task"
+        [class.active] = "task.status === TaskStatus.ACTIVE"
+        [class.done] = "task.status === TaskStatus.DONE"
+        [class.overdue] = "task.status === TaskStatus.OVERDUE"
+      >
+        <span class="task-label">{{task.name}}</span>
+      </div>
+    </div>
+  </div>
 </nz-calendar>

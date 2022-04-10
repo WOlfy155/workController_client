@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {tasks} from "../master/master.component";
 import {WorkTask} from "../../../models/workTask";
+import {TaskStatus} from "../../../models/enums/task-status";
 
 @Component({
   selector: 'app-calendar',
@@ -9,13 +10,31 @@ import {WorkTask} from "../../../models/workTask";
 })
 export class CalendarComponent implements OnInit {
 
-  constructor() { }
+  TaskStatus = TaskStatus;
+  displayMode:  'month' | 'year' = 'month';
 
-  ngOnInit(): void {
+  constructor() {
   }
 
-  get tasks(): WorkTask[]{
+  ngOnInit() {
+  }
+
+  get tasks(): WorkTask[] {
     return tasks;
   }
 
+  compareDates(date: Date, createdAt: Date): boolean {
+    return this.getDay(date) === this.getDay(createdAt) - 1;
+  }
+
+  private getDay(date: Date): number {
+    return Math.floor(date.getTime() / (1000 * 60 * 60 * 24));
+  }
+
+  navigateToMonth() {
+    if(this.displayMode === 'month'){
+      return;
+    }
+    this.displayMode = 'month';
+  }
 }

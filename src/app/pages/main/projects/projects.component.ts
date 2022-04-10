@@ -1,0 +1,64 @@
+import { Component, OnInit } from '@angular/core';
+import {Project} from "../../../models/project";
+import {tasks} from "../master/master.component";
+
+export const projects: Project[] = [
+  {
+    name: 'project1',
+    creator: 'me',
+    tasks: tasks
+  },
+  {
+    name: 'project2',
+    creator: 'me',
+    tasks: tasks
+  },
+  {
+    name: 'project3',
+    creator: 'me',
+    tasks: tasks
+  },
+  {
+    name: 'project3',
+    creator: 'me',
+    tasks: tasks
+  },
+  {
+    name: 'project3',
+    creator: 'me',
+    tasks: tasks
+  },
+  {
+    name: 'project3',
+    creator: 'me',
+    tasks: tasks
+  },
+  {
+    name: 'project3',
+    creator: 'me',
+    tasks: tasks
+  },
+  {
+    name: 'project3',
+    creator: 'me',
+    tasks: tasks
+  }
+]
+
+@Component({
+  selector: 'app-projects',
+  templateUrl: './projects.component.html',
+  styleUrls: ['./projects.component.scss']
+})
+export class ProjectsComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  get projects(): Project[]{
+    return projects;
+  }
+
+}

@@ -3,7 +3,7 @@ import {TaskStatus} from "./enums/task-status";
 export class WorkTask {
   name: string;
   text: string;
-  createdAt: Date;
+  deadline: Date;
   status: TaskStatus;
   author: string;
   authorAvatar?: any;
@@ -11,7 +11,7 @@ export class WorkTask {
   constructor(name: string, text: string, createdAt: Date, status: TaskStatus, createdBy: string) {
     this.name = name;
     this.text = text;
-    this.createdAt = createdAt;
+    this.deadline = createdAt;
     this.status = status;
     this.author = createdBy;
   }

@@ -1,0 +1,31 @@
+:host{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-container{
+  display: flex;
+  justify-content: flex-start;
+  //gap: 5rem;
+
+  padding: 2rem 10rem;
+
+  width: 100%;
+}
+
+h1{
+  font-family: Roboto, serif;
+  color: black;
+  font-size: 32px;
+
+  padding-top: 3rem;
+}
+
+.project{
+  width: 20rem;
+  height: 20rem;
+
+  background-color: green;
+}
