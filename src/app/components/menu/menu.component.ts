@@ -3,14 +3,14 @@ import {MenuService} from "../../services/menu.service";
 import {SubSink} from "../../util/SubSink";
 import {ActivatedRoute, Router} from "@angular/router";
 
-export interface menuItem{
+export interface MenuItem {
   icon: string,
   label: string,
   url: string,
   selected: boolean
 }
 
-export const menuItems: menuItem[] = [
+export const menuItems: MenuItem[] = [
   {
     icon: 'home',
     label: ' Главная',
@@ -73,11 +73,11 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  get menuItems(): menuItem[]{
+  get menuItems(): MenuItem[]{
     return menuItems;
   }
 
-  selectItem(menuItem: menuItem) {
+  selectItem(menuItem: MenuItem) {
     this.menuItems.forEach(item => item.selected = false);
     menuItem.selected = true;
   }
