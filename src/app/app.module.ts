@@ -15,6 +15,8 @@ import {MainComponent} from "./pages/main/main.component";
 import {ComponentsModule} from "./components/Components";
 import {ProjectsComponent} from "./pages/main/projects/projects.component";
 import {StatisticsComponent} from "./pages/main/statistics/statistics.component";
+import {MatIconModule} from "@angular/material/icon";
+import { ProjectDialogComponent } from './components/project-dialog/project-dialog.component';
 
 registerLocaleData(ru);
 
@@ -25,7 +27,8 @@ registerLocaleData(ru);
     CalendarComponent,
     MainComponent,
     ProjectsComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    ProjectDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ registerLocaleData(ru);
     BrowserAnimationsModule,
     MatCardModule,
     NzCalendarModule,
-    ComponentsModule
+    ComponentsModule,
+    MatIconModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: ru_RU },

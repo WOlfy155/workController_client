@@ -9,6 +9,7 @@ import {StatisticsComponent} from "./pages/main/statistics/statistics.component"
 const routes: Routes = [
   {path: '', redirectTo: 'main', pathMatch: 'full'},
   {path: 'main', component: MainComponent , children: [
+      {path:'', redirectTo: 'master', pathMatch: 'full'},
       {path: 'master', component: MasterComponent},
       {path: 'calendar', component: CalendarComponent},
       {path: 'projects', component: ProjectsComponent},

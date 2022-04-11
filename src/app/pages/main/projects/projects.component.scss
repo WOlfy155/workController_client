@@ -1,21 +1,25 @@
-:host{
+:host {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.projects-container{
+.projects-container {
   display: flex;
   justify-content: flex-start;
-  //gap: 5rem;
 
-  padding: 2rem 10rem;
+  width: 978px;
 
-  width: 100%;
+  gap: 70px;
+  flex-wrap: wrap;
+  flex: 1 1 256px;
+
+  padding: 1rem 0;
+
 }
 
-h1{
+h1 {
   font-family: Roboto, serif;
   color: black;
   font-size: 32px;
@@ -24,8 +28,43 @@ h1{
 }
 
 .project{
-  width: 20rem;
-  height: 20rem;
+  width: 256px;
+  height: 256px;
+  background-color: #C4C4C4;
 
-  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.project-name{
+  font-family: Roboto, serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 38px;
+
+  color: #000000;
+}
+
+.add-new{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.icon{
+  width: 90px;
+  height: 90px;
+  font-size: 90px;
+
+  transition: transform 250ms;
+
+  &.flip{
+    transform: rotate(90deg);
+  }
+
 }

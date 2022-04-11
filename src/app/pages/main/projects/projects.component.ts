@@ -19,27 +19,27 @@ export const projects: Project[] = [
     tasks: tasks
   },
   {
-    name: 'project3',
+    name: 'project4',
     creator: 'me',
     tasks: tasks
   },
   {
-    name: 'project3',
+    name: 'project5',
     creator: 'me',
     tasks: tasks
   },
   {
-    name: 'project3',
+    name: 'project6',
     creator: 'me',
     tasks: tasks
   },
   {
-    name: 'project3',
+    name: 'project7',
     creator: 'me',
     tasks: tasks
   },
   {
-    name: 'project3',
+    name: 'project8',
     creator: 'me',
     tasks: tasks
   }
@@ -52,9 +52,21 @@ export const projects: Project[] = [
 })
 export class ProjectsComponent implements OnInit {
 
+  mouseOnAddNew = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  mouseOn(){
+    console.log("in")
+    this.mouseOnAddNew = true;
+  }
+
+  mouseOut(){
+    console.log("out")
+    this.mouseOnAddNew = false;
   }
 
   get projects(): Project[]{

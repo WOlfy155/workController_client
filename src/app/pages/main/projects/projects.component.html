@@ -2,6 +2,23 @@
 
 <div class="projects-container">
   <div
-    *ngFor="let project of projects"
-    class="project">asd</div>
+    *ngFor="let project of projects; index as index; first as first"
+    class="project"
+  >
+    <span class="project-name">{{project.name}}</span>
+  </div>
+  <div
+    class="project"
+    (mouseenter)="mouseOn()"
+    (mouseleave)="mouseOut()"
+  >
+    <div class="add-new">
+      <mat-icon
+        class="icon"
+        [class.flip]="mouseOnAddNew"
+      >add
+      </mat-icon>
+    </div>
+  </div>
+
 </div>

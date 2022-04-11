@@ -3,11 +3,14 @@
     *ngFor="let menuItem of menuItems"
     class="menu-item"
     [routerLink]="menuItem.url"
+    [class.active]="menuItem.selected"
+    (click)="selectItem(menuItem)"
   >
     <mat-icon class="menu-icon">{{menuItem.icon}}</mat-icon>
     <span
       class="menu-tem-label"
-      [class.closed] = "isMenuClosed"
+      [class.closed]="isMenuClosed"
+      [class.active]="menuItem.selected"
     >{{menuItem.label}}</span>
   </div>
 
