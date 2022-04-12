@@ -48,6 +48,11 @@ export class AppComponent implements OnInit, OnDestroy{
       'news',
       this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/news.svg")
     );
+
+    this.matIconRegistry.addSvgIcon(
+      'MyLove',
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/MyLove.svg")
+    )
   }
 
 }

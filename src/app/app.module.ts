@@ -16,7 +16,9 @@ import {ComponentsModule} from "./components/Components";
 import {ProjectsComponent} from "./pages/main/projects/projects.component";
 import {StatisticsComponent} from "./pages/main/statistics/statistics.component";
 import {MatIconModule} from "@angular/material/icon";
-import { ProjectDialogComponent } from './components/project-dialog/project-dialog.component';
+import {ProjectDialogComponent} from './components/project-dialog/project-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {FormsModule} from "@angular/forms";
 
 registerLocaleData(ru);
 
@@ -38,7 +40,9 @@ registerLocaleData(ru);
     MatCardModule,
     NzCalendarModule,
     ComponentsModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    FormsModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: ru_RU },

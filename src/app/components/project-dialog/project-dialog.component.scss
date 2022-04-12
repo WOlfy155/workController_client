@@ -1,0 +1,44 @@
+:host{
+  width: 50vw;
+  height: 50vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: Roboto, serif;
+  color: black;
+  font-size: 32px;
+
+  padding-top: 1rem;
+}
+
+.project-name{
+
+  width: 80%;
+  height: 60px;
+
+  padding: 10px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+
+  font-family: Roboto, serif;
+  color: black;
+  font-size: 24px;
+
+  background-color: #C4C4C4;
+
+  input{
+    all: unset;
+    height: 30px;
+    background-color: #C4C4C4;
+    touch-action: unset;
+    text-decoration: none;
+    list-style : none;
+  }
+}
