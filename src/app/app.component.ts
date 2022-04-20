@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {MyController} from "../services/controller/MyController";
+import {MyController} from "./controller/MyController";
 import {SubSink} from "./util/SubSink";
 import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
@@ -27,7 +27,6 @@ export class AppComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit() {
-    // this.controller.test().then(x => this.numbers = x);
     this.subs.sink = this.menuService.menuClosed.subscribe(
       menuIsClosed => this.menuIsClosed = menuIsClosed
     );

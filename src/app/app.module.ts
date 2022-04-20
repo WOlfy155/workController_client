@@ -19,6 +19,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {ProjectDialogComponent} from './components/project-dialog/project-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {FormsModule} from "@angular/forms";
+import { LoginComponent } from './pages/login/login.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 registerLocaleData(ru);
 
@@ -30,7 +33,8 @@ registerLocaleData(ru);
     MainComponent,
     ProjectsComponent,
     StatisticsComponent,
-    ProjectDialogComponent
+    ProjectDialogComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,8 @@ registerLocaleData(ru);
     MatIconModule,
     MatDialogModule,
     FormsModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: ru_RU },

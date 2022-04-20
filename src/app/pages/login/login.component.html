@@ -1,0 +1,25 @@
+<div class="form-container">
+  <h1>Страница авторизации</h1>
+<!--  <form>-->
+    <mat-form-field appearance="fill">
+      <mat-label>username</mat-label>
+      <input type="text" [(ngModel)]="loginData.username" matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>password</mat-label>
+      <input [type]="showPassword" [(ngModel)]="loginData.password" matInput>
+      <button matSuffix mat-icon-button>
+        <mat-icon [class.active]="showPassword === 'text'"
+                  (click)="toggleShowPassword()"
+        >remove_red_eye</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button mat-raised-button
+            color="primary"
+            class="login-button"
+            (click)="login()"
+    >Войти</button>
+<!--  </form>-->
+</div>

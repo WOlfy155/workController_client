@@ -1,6 +1,6 @@
-import {HttpService} from "../http/http.service";
+import {HttpService} from "../../services/http/http.service";
 import {Injectable} from "@angular/core";
-import {promisify} from "../../app/util/RxJsUtil";
+import {promisify} from "../util/RxJsUtil";
 
 @Injectable({ providedIn: 'root' })
 export class MyController{

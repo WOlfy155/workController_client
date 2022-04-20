@@ -263,7 +263,7 @@ export class HttpService {
   private newOptionsBuilder(): OptionsBuilder {
     const ob = new OptionsBuilder();
     if (this.token) {
-      ob.appendHeader('token', this.token);
+      ob.appendHeader('Authorization', this.token);
     }
     return ob;
   }
