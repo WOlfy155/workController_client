@@ -3,12 +3,36 @@
   <span>Название проекта:</span><input [(ngModel)]="project.name" maxlength="38">
 </div>
 
-<div class="button-container">
-  <mat-icon class="icon">add_circle</mat-icon>
-  <span>Добавить сотрудника</span>
+<div class="menu-container">
+  <button mat-button [matMenuTriggerFor]="workersMenu">Работники</button>
+  <mat-icon class="icon"
+            (click)="addWorker()"
+  >add_circle</mat-icon>
+  <mat-menu class="menu" #workersMenu="matMenu">
+    <button
+      *ngFor="let worker of project.workers"
+      mat-menu-item
+    >{{worker.fullName}}</button>
+
+    <span *ngIf="project.workers.length === 0"
+          class="no-items-info"
+    >Нет работников</span>
+  </mat-menu>
 </div>
 
-<div class="button-container">
-  <mat-icon class="icon">add_circle</mat-icon>
-  <span>Добавить задачу</span>
+<div class="menu-container">
+  <button mat-button [matMenuTriggerFor]="tasksMenu">Задачи</button>
+  <mat-icon class="icon"
+            (click)="addTask()"
+  >add_circle</mat-icon>
+  <mat-menu class="menu" #tasksMenu="matMenu">
+    <button
+      *ngFor="let task of project.tasks"
+      mat-menu-item
+    >{{task.label}}</button>
+
+    <span *ngIf="project.tasks.length === 0"
+          class="no-items-info"
+    >Нет Задач</span>
+  </mat-menu>
 </div>

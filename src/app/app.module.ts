@@ -19,11 +19,13 @@ import {MatIconModule} from "@angular/material/icon";
 import {ProjectDialogComponent} from './components/project-dialog/project-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {FormsModule} from "@angular/forms";
-import { LoginComponent } from './pages/login/login.component';
+import {LoginComponent} from './pages/login/login.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {TokenInterceptor} from "./interceptors/token.interceptor";
 import {LoginService, LoginServiceFactory} from "./services/login.service";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatNativeDateModule} from "@angular/material/core";
 
 registerLocaleData(ru);
 
@@ -50,15 +52,18 @@ registerLocaleData(ru);
     MatDialogModule,
     FormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule,
+    MatNativeDateModule
   ],
   providers: [
     LoginService,
     {provide: APP_INITIALIZER, useFactory: LoginServiceFactory, deps: [LoginService], multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
-    { provide: NZ_I18N, useValue: ru_RU },
-    { provide: NZ_DATE_CONFIG, useValue: { firstDayOfWeek: 1 } },
+    {provide: NZ_I18N, useValue: ru_RU},
+    {provide: NZ_DATE_CONFIG, useValue: {firstDayOfWeek: 1}},
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
-import {Project} from "../../models/project";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {ProjectWeb} from "../../models/project-web";
+import {TaskDialogComponent, TaskDialogData} from "../task-dialog/task-dialog.component";
 
 export interface ProjectDialogData{
-  project: Project,
+  project: ProjectWeb,
   isCreated: boolean,
 }
 
@@ -14,15 +15,21 @@ export interface ProjectDialogData{
 })
 export class ProjectDialogComponent implements OnInit {
 
-  project:Project = {
+  project:ProjectWeb = {
+    id: NaN,
     name: '',
+    creator_id: NaN,
+    created_at: new Date(),
+    workers:  [],
     tasks: [],
-    creator:'',
-    workers: []
   };
 
+  // @ts-ignore
+  taskDialogRef:MatDialogRef<TaskDialogComponent, TaskDialogData>;
+
   constructor(
-    private dialogRef:  MatDialogRef<ProjectDialogComponent, ProjectDialogData>
+    private dialogRef:  MatDialogRef<ProjectDialogComponent, ProjectDialogData>,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -33,5 +40,13 @@ export class ProjectDialogComponent implements OnInit {
       project:this.project,
       isCreated: false
     });
+  }
+
+  addWorker() {
+
+  }
+
+  addTask() {
+    this.taskDialogRef = this.dialog.open(TaskDialogComponent,{});
   }
 }

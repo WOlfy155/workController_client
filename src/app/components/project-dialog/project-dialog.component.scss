@@ -45,9 +45,10 @@ h1 {
 }
 
 .icon{
-  width: 54px;
-  height: 54px;
-  font-size: 54px;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  color: green;
 }
 
 .button-container{
@@ -69,4 +70,24 @@ span{
   font-family: Roboto, serif;
   color: black;
   font-size: 24px;
+}
+
+.menu-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 80%;
+  height: 60px;
+  padding-top: 20px;
+
+  button{
+    font-family: Roboto, serif;
+    color: black;
+    font-size: 24px;
+  }
+
+}
+.no-items-info {
+  padding: 10px;
 }

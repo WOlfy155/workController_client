@@ -17,5 +17,8 @@ export class UserController{
     return mapBody(this.http.get<UserWeb>('/current-user'));
   }
 
+  loadAllUsers():Observable<UserWeb[]>{
+    return mapBody(this.http.get<UserWeb[]>('/all-users'));
+  }
 
 }

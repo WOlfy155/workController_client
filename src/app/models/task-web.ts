@@ -5,17 +5,19 @@ export class TaskWeb{
   label: string;
   description: string;
   creator: string;
+  creatorId: number;
   createdAt: Date;
   deadLine: Date;
   executorId: number;
   projectId: number;
   status:TaskStatus;
 
-  constructor(id: number, label: string, description: string, creator: string, createdAt: Date, deadLine: Date, executorId: number, projectId: number, status: TaskStatus) {
+  constructor(id: number, label: string, description: string, creator: string, creatorId: number, createdAt: Date, deadLine: Date, executorId: number, projectId: number, status: TaskStatus) {
     this.id = id;
     this.label = label;
     this.description = description;
     this.creator = creator;
+    this.creatorId = creatorId;
     this.createdAt = createdAt;
     this.deadLine = deadLine;
     this.executorId = executorId;

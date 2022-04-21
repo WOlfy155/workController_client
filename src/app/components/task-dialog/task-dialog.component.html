@@ -1,0 +1,26 @@
+<h1>Создание задачи</h1>
+<div class="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Название задачи</mat-label>
+    <input matInput [(ngModel)]="task.label">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Описание задачи</mat-label>
+    <textarea matInput [(ngModel)]="task.description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Выбрать выполнителя</mat-label>
+    <mat-select [(ngModel)]="task.executorId">
+      <mat-option *ngFor="let worker of workers" [value]="worker.id">
+        {{worker.fullName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="deadline-date">
+    <span>Последний день выполнения заадачи:</span>
+    <nz-date-picker nzFormat="yyyy/MM/dd" [(ngModel)]="task.deadLine"></nz-date-picker>
+  </div>
+</div>
