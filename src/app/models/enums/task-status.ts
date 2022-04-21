@@ -1,5 +1,5 @@
 export enum TaskStatus{
-  ACTIVE = 'ACTIVE',
-  DONE = 'DONE',
-  OVERDUE = 'OVERDUE',
+  ACTIVE = ("ACTIVE"),
+  DONE = ("DONE"),
+  OVERDUE = ("OVERDUE"),
 }

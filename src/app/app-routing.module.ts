@@ -6,12 +6,12 @@ import {CalendarComponent} from "./pages/main/calendar/calendar.component";
 import {ProjectsComponent} from "./pages/main/projects/projects.component";
 import {StatisticsComponent} from "./pages/main/statistics/statistics.component";
 import {LoginComponent} from "./pages/login/login.component";
-import {LoginGuard} from "./pages/login/login.guard";
+import {LoginGuard, MainGuard} from "./pages/login/login.guard";
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
-  {path: 'main', component: MainComponent , canLoad: [LoginGuard], children: [
+  {path: 'main', component: MainComponent , canActivate: [MainGuard], children: [
       {path:'', redirectTo: 'master', pathMatch: 'full'},
       {path: 'master', component: MasterComponent},
       {path: 'calendar', component: CalendarComponent},

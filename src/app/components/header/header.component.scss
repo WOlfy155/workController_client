@@ -1,3 +1,8 @@
+:host{
+  display: flex;
+  justify-content: space-between;
+}
+
 .logo-container{
   padding: 6px 0 0 10px;
   display: flex;
@@ -16,4 +21,23 @@
   font-weight: bold;
   display: flex;
   align-items: center;
+}
+
+.profile-container{
+  padding-right: 6px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  width: 256px;
+}
+
+.logout-icon{
+  font-size: 24px;
+  color: red;
+}
+
+.username{
+  font-family: Roboto, serif;
+  font-size: 16px;
 }

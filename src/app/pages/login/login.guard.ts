@@ -22,6 +22,30 @@ export class LoginGuard implements CanActivate, CanLoad {
   }
 
   canLoad() {
+    if(!this.loginService.isLoggedIn){
+      this.router.navigate(['/login']);
+    }
+    return this.loginService.isLoggedIn;
+  }
+
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MainGuard implements CanActivate {
+
+  constructor(
+    private loginService: LoginService,
+    private router: Router
+  ) {
+  }
+
+  canActivate(){
+    if(!this.loginService.isLoggedIn){
+      this.router.navigate(['/login']);
+    }
+
     return this.loginService.isLoggedIn;
   }
 

@@ -61,10 +61,12 @@ h1 {
   height: 90px;
   font-size: 90px;
 
-  transition: transform 250ms;
+  transition: font-size 250ms , width 250ms, height 250ms;
 
   &.flip{
-    transform: rotate(90deg);
+    width: 110px;
+    height: 110px;
+    font-size: 110px;
   }
 
 }

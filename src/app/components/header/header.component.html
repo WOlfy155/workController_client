@@ -1,12 +1,26 @@
 <div class="logo-container">
-
   <mat-icon
     class="logo"
     (click)="toggleMenu()"
-  >menu</mat-icon>
+  >menu
+  </mat-icon>
 
   <div class="logo-name">
-  <mat-icon svgIcon="MyLove" class="logo"></mat-icon>
+    <mat-icon svgIcon="MyLove" class="logo"></mat-icon>
     Worker Controller
   </div>
+</div>
+
+<div
+  class="profile-container"
+>
+  <span
+    *ngIf="currentUser"
+    class="username">
+    {{currentUser.username}}
+  </span>
+  <mat-icon class="logout-icon"
+            (click)="logout()">
+    exit_to_app
+  </mat-icon>
 </div>

@@ -16,4 +16,8 @@ export class LoginController{
   login(loginData: LoginData): Observable<Tokens>{
     return mapBody(this.http.post<Tokens>("login", loginData));
   }
+
+  logout(): Observable<void>{
+    return mapBody(this.http.post("logout"));
+  }
 }
