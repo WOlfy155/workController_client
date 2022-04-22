@@ -1,19 +1,24 @@
 <h1>Текущие задачи</h1>
 
-<div class="task-container">
+<div class="task-container" *ngIf="tasks.length > 0; else noTasks">
   <mat-card
     *ngFor="let task of tasks"
     class="task"
   >
     <div class="card-header">
-      <mat-card-title class="task-name">{{task.name}}</mat-card-title>
+      <mat-card-title class="task-name">{{task.label}}</mat-card-title>
       <mat-card-header>
-        <span class="author"> Автор: {{task.author}}</span>
+        <span class="author"> Автор: {{task.creator}}</span>
       </mat-card-header>
     </div>
 
-    <mat-card-content class="task-content">{{task.text}}</mat-card-content>
+    <mat-card-content class="task-content">{{task.description}}</mat-card-content>
 
   </mat-card>
-
 </div>
+
+<ng-template
+  #noTasks
+>
+  <span class="no-tasks-message">На данный момент нет задач</span>
+</ng-template>

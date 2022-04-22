@@ -1,6 +1,6 @@
 <nz-calendar
   [(nzMode)]="displayMode"
-  (nzSelectChange)="navigateToMonth()"
+  (nzSelectChange)="navigateToMonth($event)"
 >
   <div *nzDateCell="let date">
     <div *ngFor="let task of tasks">

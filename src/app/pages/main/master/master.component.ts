@@ -1,6 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {WorkTask} from "../../../models/workTask";
 import {TaskStatus} from "../../../models/enums/task-status";
+import {TaskWeb} from "../../../models/task-web";
+import {LoginService} from "../../../services/login.service";
+import {TaskController} from "../../../controller/TaskController";
+import {UserWeb} from "../../../models/user-web";
+import {SubSink} from "../../../util/SubSink";
+import {switchMap, tap} from "rxjs";
 
 export const tasks: WorkTask[] = [
   {
@@ -40,14 +46,28 @@ export const tasks: WorkTask[] = [
   templateUrl: './master.component.html',
   styleUrls: ['./master.component.scss']
 })
-export class MasterComponent implements OnInit {
+export class MasterComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  tasks: TaskWeb[] = [];
 
-  ngOnInit(): void {
+  private currentUser: UserWeb | undefined;
+  private subs = new SubSink();
+
+  constructor(
+    private loginService: LoginService,
+    private taskController: TaskController
+  ) { }
+
+  ngOnInit() {
+    this.subs.sink = this.loginService.authInfo$.pipe(
+      tap(user => this.currentUser = user),
+      switchMap(user => this.taskController.loadUserTasks(user.id)),
+      tap(tasks => this.tasks = tasks)
+    ).subscribe();
   }
 
-  get tasks(): WorkTask[]{
-    return tasks
+  ngOnDestroy() {
+    this.subs.unsubscribe();
   }
+
 }

@@ -1,5 +1,7 @@
 <h1>Создание задачи</h1>
-<div class="form">
+<div
+  class="form"
+  >
   <mat-form-field appearance="fill">
     <mat-label>Название задачи</mat-label>
     <input matInput [(ngModel)]="task.label">
@@ -21,6 +23,11 @@
 
   <div class="deadline-date">
     <span>Последний день выполнения заадачи:</span>
-    <nz-date-picker nzFormat="yyyy/MM/dd" [(ngModel)]="task.deadLine"></nz-date-picker>
+    <nz-date-picker nzFormat="dd/MM/yyyy" [(ngModel)]="task.deadLine"></nz-date-picker>
   </div>
 </div>
+
+<app-save-buttons
+  (acceptedClicked)="saveTask()"
+  (cancelClicked)="cancel()"
+></app-save-buttons>

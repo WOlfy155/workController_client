@@ -26,10 +26,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(){
     this.subs.sink = this.loginService.authInfo$.subscribe(
-      user => {
-        console.dir(user);
-        this.currentUser = user;
-      }
+      user => this.currentUser = user
     )
   }
 

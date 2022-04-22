@@ -14,7 +14,11 @@ export class TaskController{
   }
 
   saveTask(task: TaskWeb): Observable<void>{
-    return mapBody(this.http.post('/save', {task}));
+    return mapBody(this.http.postValue('/save', JSON.stringify(task)));
+  }
+
+  loadUserTasks(executorId: number): Observable<TaskWeb[]>{
+    return mapBody(this.http.post("/user-tasks", {executorId}))
   }
 
 }

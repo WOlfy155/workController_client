@@ -11,30 +11,36 @@ import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {SaveButtonsComponent} from "./save-buttons/save-buttons.component";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
     MenuComponent,
     HeaderComponent,
-    TaskDialogComponent
+    TaskDialogComponent,
+    SaveButtonsComponent,
   ],
-    imports: [
-        AppRoutingModule,
-        MatIconModule,
-        CommonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        NzDatePickerModule,
-        MatDatepickerModule,
-        MatOptionModule,
-        MatSelectModule,
-        FormsModule,
-    ],
+  imports: [
+    AppRoutingModule,
+    MatIconModule,
+    CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NzDatePickerModule,
+    MatDatepickerModule,
+    MatOptionModule,
+    MatSelectModule,
+    FormsModule,
+    MatButtonModule,
+    ReactiveFormsModule
+  ],
   exports: [
     MenuComponent,
     HeaderComponent,
-    TaskDialogComponent
+    TaskDialogComponent,
+    SaveButtonsComponent,
   ]
 })
 export class ComponentsModule{}

@@ -56,3 +56,13 @@ h1{
   overflow: hidden;
   white-space: nowrap;
 }
+
+.no-tasks-message{
+  font-family: Roboto, serif;
+  font-size: 64px;
+  color: black;
+  text-align: center;
+
+  height: 300px;
+  padding: 50px;
+}

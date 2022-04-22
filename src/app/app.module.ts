@@ -38,7 +38,7 @@ registerLocaleData(ru);
     ProjectsComponent,
     StatisticsComponent,
     ProjectDialogComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
