@@ -1,1 +1,18 @@
-<p>statistics works!</p>
+<div *ngIf="userInfo" class="profile-container">
+
+  <div class="profile-picture-container">
+    <img class="profile-img" src="assets/default-user-profile.png">
+  </div>
+
+  <div class="profile-info-container">
+    <span class="user-name">{{currentUser?.username}} : {{role}}</span>
+    <div class="count">
+      <span>{{currentUser?.fullName}}</span>
+      <span>Количество задач: {{userInfo.allTasksCount}}</span>
+      <span>Количество проектов: {{userInfo.projectsCount}}</span>
+      <span>выполнено задач: {{userInfo.doneTasksCount}}</span>
+      <span>задач просрочено: {{userInfo.overdueTasksCount}}</span>
+    </div>
+  </div>
+
+</div>

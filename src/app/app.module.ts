@@ -26,6 +26,8 @@ import {TokenInterceptor} from "./interceptors/token.interceptor";
 import {LoginService, LoginServiceFactory} from "./services/login.service";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatNativeDateModule} from "@angular/material/core";
+import {UserListComponent} from "./pages/main/user-list/user-list.component";
+import {MatTableModule} from "@angular/material/table";
 
 registerLocaleData(ru);
 
@@ -39,6 +41,7 @@ registerLocaleData(ru);
     StatisticsComponent,
     ProjectDialogComponent,
     LoginComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ registerLocaleData(ru);
     MatInputModule,
     MatButtonModule,
     MatMenuModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule,
   ],
   providers: [
     LoginService,

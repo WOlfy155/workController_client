@@ -1,5 +1,4 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {MyController} from "./controller/MyController";
 import {SubSink} from "./util/SubSink";
 import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
@@ -18,7 +17,6 @@ export class AppComponent implements OnInit, OnDestroy{
   menuIsClosed = false;
 
   constructor(
-    private readonly controller: MyController,
     private readonly matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
     private menuService: MenuService

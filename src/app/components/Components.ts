@@ -14,6 +14,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SaveButtonsComponent} from "./save-buttons/save-buttons.component";
 import {MatButtonModule} from "@angular/material/button";
+import {UserDialogComponent} from "./user-dialog/user-dialog.component";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {MatButtonModule} from "@angular/material/button";
     HeaderComponent,
     TaskDialogComponent,
     SaveButtonsComponent,
+    UserDialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -34,7 +36,7 @@ import {MatButtonModule} from "@angular/material/button";
     MatSelectModule,
     FormsModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     MenuComponent,

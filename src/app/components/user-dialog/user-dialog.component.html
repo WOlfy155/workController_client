@@ -1,0 +1,49 @@
+<h1>Создание задачи</h1>
+<div
+  class="form"
+>
+<!--  id: rndNumberId(),-->
+<!--  username: '',-->
+<!--  fullName: '',-->
+<!--  workingFrom: new Date(),-->
+<!--  profileImgUrl: '',-->
+<!--  role: WorkRole.MANAGER,-->
+<!--  tasks: []-->
+
+  <mat-form-field appearance="fill">
+    <mat-label>ФИО</mat-label>
+    <input matInput [(ngModel)]="user.fullName">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>username</mat-label>
+    <textarea matInput [(ngModel)]="user.username"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>password</mat-label>
+    <textarea matInput [(ngModel)]="user.password"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Выбрать выполнителя</mat-label>
+    <mat-select [(ngModel)]="user.role">
+      <mat-option [value]="'MANAGER'">
+        Администратор
+      </mat-option>
+      <mat-option [value]="'EMPLOYEE'">
+        Сотрудник
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="deadline-date">
+    <span>Последний день выполнения заадачи:</span>
+    <nz-date-picker nzFormat="dd/MM/yyyy" [(ngModel)]="user.workingFrom"></nz-date-picker>
+  </div>
+</div>
+
+<app-save-buttons
+  (acceptedClicked)="saveUser()"
+  (cancelClicked)="cancel()"
+></app-save-buttons>

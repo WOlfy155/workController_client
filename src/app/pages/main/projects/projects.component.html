@@ -1,6 +1,12 @@
 <h1>Мои проекты</h1>
 
-<div class="projects-container">
+<div
+  class="projects-container">
+
+  <span
+    *ngIf="projects.length === 0 && !isManager && isPageLoaded"
+    class="no-projects-message"
+  >На данный момент нет проектов</span>
   <div
     *ngFor="let project of projects; index as index; first as first"
     class="project"
@@ -8,12 +14,14 @@
     <span class="project-name">{{project.name}}</span>
   </div>
   <div
+    *ngIf="isManager"
     class="project"
     (mouseenter)="mouseOn()"
     (mouseleave)="mouseOut()"
     (click)="openProjectDialog()"
   >
-    <div class="add-new">
+    <div
+      class="add-new">
       <mat-icon
         class="icon"
         [class.flip]="mouseOnAddNew"
@@ -21,5 +29,4 @@
       </mat-icon>
     </div>
   </div>
-
 </div>

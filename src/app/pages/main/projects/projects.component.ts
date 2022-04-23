@@ -1,60 +1,13 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Project} from "../../../models/project";
-import {tasks} from "../master/master.component";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {ProjectDialogComponent, ProjectDialogData} from "../../../components/project-dialog/project-dialog.component";
 import {SubSink} from "../../../util/SubSink";
-
-export const projects: Project[] = [
-  {
-    name: 'project1',
-    creator: 'me',
-    tasks: tasks,
-    workers: []
-  },
-  {
-    name: 'project2',
-    creator: 'me',
-    tasks: tasks,
-    workers: []
-  },
-  {
-    name: 'project3',
-    creator: 'me',
-    tasks: tasks,
-    workers: []
-  },
-  {
-    name: 'project4',
-    creator: 'me',
-    tasks: tasks,
-    workers: []
-  },
-  {
-    name: 'project5',
-    creator: 'me',
-    tasks: tasks,
-    workers: []
-  },
-  {
-    name: 'project6',
-    creator: 'me',
-    tasks: tasks,
-    workers: []
-  },
-  {
-    name: 'project7',
-    creator: 'me',
-    tasks: tasks,
-    workers: []
-  },
-  {
-    name: 'project8',
-    creator: 'me',
-    tasks: tasks,
-    workers: []
-  }
-]
+import {UserWeb} from "../../../models/user-web";
+import {LoginService} from "../../../services/login.service";
+import {filter, switchMap, tap} from "rxjs";
+import {WorkRole} from "../../../models/enums/work-role";
+import {ProjectController} from "../../../controller/ProjectController";
+import {ProjectWeb} from "../../../models/project-web";
 
 @Component({
   selector: 'app-projects',
@@ -64,6 +17,9 @@ export const projects: Project[] = [
 export class ProjectsComponent implements OnInit, OnDestroy {
 
   mouseOnAddNew = false;
+  currentUser: UserWeb | undefined;
+  projects: ProjectWeb[] =[];
+  isPageLoaded = false;
 
   // @ts-ignore
   private subs = new SubSink();
@@ -71,10 +27,18 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   private dialogRef: MatDialogRef<ProjectDialogComponent,ProjectDialogData>;
 
   constructor(
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private loginService: LoginService,
+    private projectController: ProjectController
   ) { }
 
   ngOnInit() {
+    this.subs.sink = this.loginService.authInfo$.pipe(
+      tap(user => this.currentUser = user),
+      switchMap(user => this.projectController.loadUserProjects(user.id)),
+      tap(projects => this.projects = projects),
+      tap(() => this.isPageLoaded = true)
+    ).subscribe();
   }
 
   ngOnDestroy() {
@@ -92,11 +56,20 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   openProjectDialog() {
     this.dialogRef = this.dialog.open(ProjectDialogComponent, {
     });
-    this.subs.sink = this.dialogRef.afterClosed().subscribe();
+    this.subs.sink = this.dialogRef.afterClosed().pipe(
+      filter(projectData => !!projectData),
+      //@ts-ignore
+      filter(projectData => projectData.isCreated),
+      //@ts-ignore
+      tap(projectData => this.projects.push(projectData.project))
+    ).subscribe();
 
   }
 
-  get projects(): Project[]{
-    return projects;
+  get isManager(): boolean{
+    if(!this.currentUser){
+      return false;
+    }
+    return this.currentUser.role === WorkRole.MANAGER;
   }
 }

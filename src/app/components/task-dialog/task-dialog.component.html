@@ -1,20 +1,20 @@
-<h1>Создание задачи</h1>
+<h1>{{dialogLabel}}</h1>
 <div
   class="form"
   >
   <mat-form-field appearance="fill">
     <mat-label>Название задачи</mat-label>
-    <input matInput [(ngModel)]="task.label">
+    <input matInput [(ngModel)]="task.label" [disabled] = isViewDialog>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Описание задачи</mat-label>
-    <textarea matInput [(ngModel)]="task.description"></textarea>
+    <textarea matInput [(ngModel)]="task.description" [disabled] = isViewDialog></textarea>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Выбрать выполнителя</mat-label>
-    <mat-select [(ngModel)]="task.executorId">
+    <mat-select [(ngModel)]="task.executorId" [disabled] = isViewDialog>
       <mat-option *ngFor="let worker of workers" [value]="worker.id">
         {{worker.fullName}}
       </mat-option>
@@ -23,11 +23,19 @@
 
   <div class="deadline-date">
     <span>Последний день выполнения заадачи:</span>
-    <nz-date-picker nzFormat="dd/MM/yyyy" [(ngModel)]="task.deadLine"></nz-date-picker>
+    <nz-date-picker nzFormat="dd/MM/yyyy" [(ngModel)]="task.deadLine" [disabled] = isViewDialog></nz-date-picker>
   </div>
 </div>
 
 <app-save-buttons
+  *ngIf="showAcceptButtons"
   (acceptedClicked)="saveTask()"
   (cancelClicked)="cancel()"
 ></app-save-buttons>
+
+<button
+  *ngIf="isViewDialog"
+  class="done-button"
+  mat-raised-button
+  (click)="setStatusDone()"
+> Выполнено </button>

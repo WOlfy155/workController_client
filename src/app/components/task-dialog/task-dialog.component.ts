@@ -8,11 +8,14 @@ import {UserController} from "../../controller/UserController";
 import {UserWeb} from "../../models/user-web";
 import {switchMap, tap} from "rxjs";
 import {TaskController} from "../../controller/TaskController";
+import {rndNumberId} from "../../util/RndUtil";
+import {DialogType} from "../../models/enums/dialog-type";
 
 export interface TaskDialogData {
-  task: TaskWeb,
-  isCreated: boolean,
-  deadline: Date,
+  task: TaskWeb ,
+  isCreated: boolean ,
+  deadline: Date ,
+  type: DialogType
 }
 
 @Component({
@@ -23,7 +26,7 @@ export interface TaskDialogData {
 export class TaskDialogComponent implements OnInit, OnDestroy {
 
   task: TaskWeb = {
-    id: NaN,
+    id: rndNumberId(),
     label: '',
     description: '',
     creator: '',
@@ -36,6 +39,9 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
   };
 
   workers: UserWeb[] = [];
+
+  dialogType: DialogType;
+
   // @ts-ignore
   private subs = new SubSink();
 
@@ -46,11 +52,16 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
     private dialogRef: MatDialogRef<TaskDialogComponent, TaskDialogData>,
     @Inject(MAT_DIALOG_DATA) public data: TaskDialogData,
   ) {
+    console.dir(data);
+    this.dialogType = data.type;
 
-    if(!data?.deadline){
-      return;
+    if(data?.deadline){
+      this.task.deadLine = data.deadline;
     }
-    this.task.deadLine = data.deadline;
+
+    if(data?.task){
+      this.task = data.task;
+    }
   }
 
   ngOnInit() {
@@ -103,9 +114,35 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
       () => this.dialogRef.close({
         task: this.task,
         isCreated: true,
-        deadline: this.task.deadLine
+        deadline: this.task.deadLine,
+        type: this.dialogType,
       })
     )
+  }
+
+  get showAcceptButtons(): boolean{
+    return this.dialogType !== DialogType.VIEW;
+  }
+
+  get isViewDialog(): boolean{
+    return this.dialogType === DialogType.VIEW;
+  }
+  get dialogLabel(): string {
+    switch (this.dialogType){
+      case DialogType.CREATE:
+        return 'Создание задачаси';
+      case DialogType.EDIT:
+        return 'Редактирование задачи';
+      case DialogType.VIEW:
+        return 'Просмотр задачи';
+      default:
+        return '';
+    }
+  }
+
+  setStatusDone(){
+    this.task.status = TaskStatus.DONE;
+    this.saveTask();
   }
 
   cancel() {

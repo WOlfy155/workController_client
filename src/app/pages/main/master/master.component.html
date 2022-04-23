@@ -4,6 +4,7 @@
   <mat-card
     *ngFor="let task of tasks"
     class="task"
+    (click)="openTaskForView(task)"
   >
     <div class="card-header">
       <mat-card-title class="task-name">{{task.label}}</mat-card-title>
@@ -17,8 +18,6 @@
   </mat-card>
 </div>
 
-<ng-template
-  #noTasks
->
-  <span class="no-tasks-message">На данный момент нет задач</span>
+<ng-template  #noTasks>
+  <span *ngIf="isPageLoaded" class="no-tasks-message">На данный момент нет задач</span>
 </ng-template>

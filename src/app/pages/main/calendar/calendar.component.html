@@ -5,13 +5,13 @@
   <div *nzDateCell="let date">
     <div *ngFor="let task of tasks">
       <div
-        *ngIf="compareDates(date, task.deadline)"
+        *ngIf="compareDates(date, task.deadLine)"
         class="task"
         [class.active] = "task.status === TaskStatus.ACTIVE"
         [class.done] = "task.status === TaskStatus.DONE"
         [class.overdue] = "task.status === TaskStatus.OVERDUE"
       >
-        <span class="task-label">{{task.name}}</span>
+        <span class="task-label">{{task.label}}</span>
       </div>
     </div>
   </div>

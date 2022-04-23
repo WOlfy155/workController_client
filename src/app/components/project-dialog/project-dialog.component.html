@@ -36,3 +36,8 @@
     >Нет Задач</span>
   </mat-menu>
 </div>
+
+<app-save-buttons
+  (acceptedClicked)="saveProject()"
+  (cancelClicked)="cancel()"
+></app-save-buttons>
