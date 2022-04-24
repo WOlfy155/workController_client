@@ -44,8 +44,6 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.subs.sink = this.dialogRef.afterClosed().pipe(
       filter(userData => !!userData),
       //@ts-ignore
-      filter(userData => userData.isCreated),
-      //@ts-ignore
       tap(user => this.users.push(user)),
     ).subscribe();
   }

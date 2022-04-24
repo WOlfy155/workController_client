@@ -8,6 +8,8 @@ import {LoginService} from "../../services/login.service";
 import {UserWeb} from "../../models/user-web";
 import {ProjectController} from "../../controller/ProjectController";
 import {rndNumberId} from "../../util/RndUtil";
+import {WorkRole} from "../../models/enums/work-role";
+import {DialogType} from "../../models/enums/dialog-type";
 
 export interface ProjectDialogData{
   project: ProjectWeb,
@@ -66,7 +68,9 @@ export class ProjectDialogComponent implements OnInit {
   }
 
   addTask() {
-    this.taskDialogRef = this.dialog.open(TaskDialogComponent,{});
+    this.taskDialogRef = this.dialog.open(TaskDialogComponent,{
+    data: {type: DialogType.CREATE}
+    });
     this.subs.sink = this.taskDialogRef.afterClosed().pipe(
       filter(data => !!data),
       tap(data => {

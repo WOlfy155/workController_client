@@ -52,7 +52,6 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
     private dialogRef: MatDialogRef<TaskDialogComponent, TaskDialogData>,
     @Inject(MAT_DIALOG_DATA) public data: TaskDialogData,
   ) {
-    console.dir(data);
     this.dialogType = data.type;
 
     if(data?.deadline){
