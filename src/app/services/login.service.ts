@@ -28,7 +28,7 @@ export class LoginService {
       tap(user => this.authInfo.next(user)),
       mapTo(true),
       catchError(error => {
-        alert(error.error);
+        alert("Такого пользователя не существует");
         return of(false);
       })
     )

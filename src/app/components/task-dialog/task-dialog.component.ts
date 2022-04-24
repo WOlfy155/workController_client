@@ -129,7 +129,7 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
   get dialogLabel(): string {
     switch (this.dialogType){
       case DialogType.CREATE:
-        return 'Создание задачаси';
+        return 'Создание задачи';
       case DialogType.EDIT:
         return 'Редактирование задачи';
       case DialogType.VIEW:
