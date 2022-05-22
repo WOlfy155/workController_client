@@ -1,0 +1,25 @@
+<h1>Новости</h1>
+
+<div class="rss-feed"
+     (click)="getRssFeedLink()"
+>
+  <button mat-raised-button  color="primary" class="login-button">RSS-рассылка</button>
+</div>
+
+<div class="task-container" *ngIf="news.length > 0; else noNews">
+  <mat-card
+    *ngFor="let n of news"
+    class="task"
+  >
+    <div class="card-header">
+      <mat-card-title class="task-name">{{n.title}}</mat-card-title>
+    </div>
+
+    <mat-card-content class="task-content">{{n.content}}</mat-card-content>
+
+  </mat-card>
+</div>
+
+<ng-template #noNews>
+  <span *ngIf="isPageLoaded" class="no-tasks-message">На данный момент никаких новостей</span>
+</ng-template>

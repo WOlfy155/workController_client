@@ -8,6 +8,7 @@ import {StatisticsComponent} from "./pages/main/statistics/statistics.component"
 import {LoginComponent} from "./pages/login/login.component";
 import {LoginGuard, MainGuard} from "./pages/login/login.guard";
 import {UserListComponent} from "./pages/main/user-list/user-list.component";
+import {NewsComponent} from "./pages/main/news/news.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -17,6 +18,7 @@ const routes: Routes = [
       {path: 'master', component: MasterComponent},
       {path: 'calendar', component: CalendarComponent},
       {path: 'projects', component: ProjectsComponent},
+      {path: 'news', component: NewsComponent},
       {path: 'statistics', component: StatisticsComponent},
       {path: 'user-list', component: UserListComponent}
     ]}

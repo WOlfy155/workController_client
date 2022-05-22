@@ -36,7 +36,7 @@ export const menuItems: MenuItem[] = [
   {
     icon: 'receipt',
     label: ' Новости',
-    url: '',
+    url: 'news',
     selected: false
   },
   {

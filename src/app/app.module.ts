@@ -28,6 +28,8 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatNativeDateModule} from "@angular/material/core";
 import {UserListComponent} from "./pages/main/user-list/user-list.component";
 import {MatTableModule} from "@angular/material/table";
+import {NewsComponent} from "./pages/main/news/news.component";
+import { ClipboardModule } from 'ngx-clipboard';
 
 registerLocaleData(ru);
 
@@ -42,6 +44,7 @@ registerLocaleData(ru);
     ProjectDialogComponent,
     LoginComponent,
     UserListComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ registerLocaleData(ru);
     MatMenuModule,
     MatNativeDateModule,
     MatTableModule,
+    ClipboardModule,
   ],
   providers: [
     LoginService,

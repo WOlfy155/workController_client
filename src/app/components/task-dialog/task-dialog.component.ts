@@ -108,7 +108,6 @@ export class TaskDialogComponent implements OnInit, OnDestroy {
   // }
   saveTask() {
     this.subs.sink = this.taskController.saveTask(this.task).pipe(
-      tap(() => console.dir(this.task))
     ).subscribe(
       () => this.dialogRef.close({
         task: this.task,

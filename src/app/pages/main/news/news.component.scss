@@ -1,0 +1,75 @@
+:host{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: hidden;
+}
+
+h1{
+  font-family: Roboto, serif;
+  color: black;
+  font-size: 32px;
+
+  padding-top: 3rem;
+}
+
+.rss-feed{
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.task-container{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  padding-top: 1rem;
+}
+.task{
+  width: calc(100vw - 35rem);
+  height: 10rem;
+  background-color: #DADADA;
+  cursor: pointer;
+}
+
+.task-name{
+  font-family: Roboto, serif;
+  color: black;
+  font-size: 24px;
+}
+
+.card-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.author{
+  font-family: Roboto, serif;
+  color: black;
+  font-size: 20px;
+}
+
+.task-content{
+  font-family: Roboto, serif;
+  color: black;
+  font-size: 20px;
+
+  padding-top: .5rem;
+  width: 100%;
+  max-height: 9rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.no-tasks-message{
+  font-family: Roboto, serif;
+  font-size: 64px;
+  color: black;
+  text-align: center;
+
+  height: 300px;
+  padding: 50px;
+}
