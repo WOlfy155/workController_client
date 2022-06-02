@@ -75,6 +75,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.subs.sink = this.menuService.menuClosed.pipe(
+      tap(() => setTimeout(() => {}, 400)),
       tap(isMenuClosed => this.isMenuClosed = isMenuClosed),
       switchMap(() => this.loginService.authInfo$),
       tap(user => this.deleteUserListIfNeeded(user))

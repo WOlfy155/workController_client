@@ -2,7 +2,6 @@
 <div class="project-name">
   <span>Название проекта:</span><input [(ngModel)]="project.name" maxlength="38">
 </div>
-
 <div class="menu-container">
   <button mat-button [matMenuTriggerFor]="workersMenu">Работники</button>
   <mat-icon class="icon"
@@ -19,7 +18,6 @@
     >Нет работников</span>
   </mat-menu>
 </div>
-
 <div class="menu-container">
   <button mat-button [matMenuTriggerFor]="tasksMenu">Задачи</button>
   <mat-icon class="icon"
@@ -36,7 +34,6 @@
     >Нет Задач</span>
   </mat-menu>
 </div>
-
 <app-save-buttons
   (acceptedClicked)="saveProject()"
   (cancelClicked)="cancel()"
