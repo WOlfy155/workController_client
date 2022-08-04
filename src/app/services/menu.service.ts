@@ -9,6 +9,7 @@ export class MenuService {
 
   public toggleMenu(){
     this.menuClosedSubject.next(!this.menuClosedSubject.value);
+    console.log("Meow");
   }
 
 }
